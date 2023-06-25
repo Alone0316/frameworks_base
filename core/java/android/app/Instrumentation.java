@@ -66,6 +66,7 @@ import java.util.List;
 import java.util.concurrent.TimeoutException;
 
 import com.android.internal.util.evolution.AttestationHooks;
+import com.android.internal.util.evolution.GamesPropsUtils;
 import com.android.internal.util.evolution.PixelPropsUtils;
 
 /**
@@ -1247,6 +1248,7 @@ public class Instrumentation {
                 .instantiateApplication(cl, className);
         app.attach(context);
         AttestationHooks.setProps(context);
+        GamesPropsUtils.setProps(context);
         PixelPropsUtils.setProps(context);
         return app;
     }
@@ -1266,6 +1268,7 @@ public class Instrumentation {
         Application app = (Application)clazz.newInstance();
         app.attach(context);
         AttestationHooks.setProps(context);
+        GamesPropsUtils.setProps(context);
         PixelPropsUtils.setProps(context);
         return app;
     }

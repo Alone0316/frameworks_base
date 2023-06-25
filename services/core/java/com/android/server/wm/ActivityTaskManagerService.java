@@ -273,7 +273,12 @@ import com.android.server.usage.AppStandbyInternal;
 import com.android.internal.util.PropImitationHooks;
 import com.android.internal.util.custom.cutout.CutoutFullscreenController;
 
+<<<<<<< HEAD
 import com.android.internal.util.evolution.AttestationHooks;
+=======
+import com.android.internal.util.evolution.PixelPropsUtils;
+import com.android.internal.util.evolution.cutout.CutoutFullscreenController;
+>>>>>>> ed3103038982 (PixelPropsUtils: Refactor)
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -1974,7 +1979,7 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
 
     @Override
     public RootTaskInfo getFocusedRootTaskInfo() throws RemoteException {
-        if (!AttestationHooks.shouldBypassTaskPermission(mContext)) {
+        if (!PixelPropsUtils.shouldBypassTaskPermission(mContext)) {
             enforceTaskPermission("getFocusedRootTaskInfo()");
         }
         final long ident = Binder.clearCallingIdentity();
@@ -3006,7 +3011,7 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
     /** Sets the task stack listener that gets callbacks when a task stack changes. */
     @Override
     public void registerTaskStackListener(ITaskStackListener listener) {
-        if (!AttestationHooks.shouldBypassTaskPermission(mContext)) {
+        if (!PixelPropsUtils.shouldBypassTaskPermission(mContext)) {
             enforceTaskPermission("registerTaskStackListener()");
         }
         mTaskChangeNotificationController.registerTaskStackListener(listener);
