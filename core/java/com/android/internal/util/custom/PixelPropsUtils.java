@@ -66,12 +66,6 @@ public class PixelPropsUtils {
     private static final Map<String, Object> propsToChangeMeizu;
     private static final Map<String, ArrayList<String>> propsToKeep;
 
-    // Packages to Spoof as Pixel Tablet
-    private static final String[] packagesToChangePixelTablet = {
-            "com.google.android.googlequicksearchbox",
-            "com.google.android.apps.googleassistant"
-    };
-
     // Packages to Spoof as Pixel 7 Pro
     private static final String[] packagesToChangePixel7Pro = {
             "com.google.android.apps.emojiwallpaper",
@@ -289,9 +283,6 @@ public class PixelPropsUtils {
             } else if (Arrays.asList(packagesToChangePixel2).contains(packageName)) {
                 if (isPixelDevice) return;
                 propsToChange.putAll(propsToChangePixel2);
-            } else if (Arrays.asList(packagesToChangePixelTablet).contains(packageName)) {
-                if (isPixelDevice) return;
-                propsToChange.putAll(propsToChangePixelTablet);
             } else if ((Arrays.asList(packagesToChangePixel7Pro).contains(packageName))
                     || (Arrays.asList(extraPackagesToChange).contains(packageName))) {
                 if (isPixelDevice) return;
