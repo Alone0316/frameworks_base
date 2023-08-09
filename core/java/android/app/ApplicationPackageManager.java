@@ -863,8 +863,12 @@ public class ApplicationPackageManager extends PackageManager {
     private static final String[] featuresTensor = {
             "com.google.android.feature.PIXEL_2022_EXPERIENCE",
             "com.google.android.feature.PIXEL_2022_MIDYEAR_EXPERIENCE",
+<<<<<<< HEAD
             "com.google.android.feature.PIXEL_2021_EXPERIENCE",
             "com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE"
+=======
+            "com.google.android.feature.PIXEL_2021_EXPERIENCE"
+>>>>>>> 4db00cc75b8c (PixelPropsUtils: Refactor logic and cleanup)
     };
 
     private static final String[] featuresNexus = {
@@ -877,6 +881,13 @@ public class ApplicationPackageManager extends PackageManager {
 
     @Override
     public boolean hasSystemFeature(String name, int version) {
+<<<<<<< HEAD
+=======
+        if (name != null && Arrays.asList(featuresTensor).contains(name) &&
+                !Arrays.asList(pTensorCodenames).contains(SystemProperties.get("ro.product.device"))) {
+            return false;
+        }
+>>>>>>> 4db00cc75b8c (PixelPropsUtils: Refactor logic and cleanup)
         String packageName = ActivityThread.currentPackageName();
         if (packageName != null &&
                 packageName.equals("com.google.android.apps.photos") &&
@@ -884,7 +895,6 @@ public class ApplicationPackageManager extends PackageManager {
             if (Arrays.asList(featuresPixel).contains(name)) return false;
             if (Arrays.asList(featuresPixelOthers).contains(name)) return true;
             if (Arrays.asList(featuresP23).contains(name)) return false;
-            if (Arrays.asList(featuresTensor).contains(name)) return false;
             if (Arrays.asList(featuresNexus).contains(name)) return true;
           }
         if (Arrays.asList(featuresTensor).contains(name) &&
