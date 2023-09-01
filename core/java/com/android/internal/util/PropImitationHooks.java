@@ -33,8 +33,8 @@ public class PropImitationHooks {
     private static final String TAG = "PropImitationHooks";
     private static final boolean DEBUG = false;
 
-    private static final String[] sCertifiedProps =
-            Resources.getSystem().getStringArray(R.array.config_certifiedBuildProperties);
+    private static final String sCertifiedFp =
+            Resources.getSystem().getString(R.string.config_certifiedFingerprint);
 
     private static final String sStockFp =
             Resources.getSystem().getString(R.string.config_stockFingerprint);
@@ -108,19 +108,17 @@ public class PropImitationHooks {
         sIsGms = packageName.equals(PACKAGE_GMS) && processName.equals(PROCESS_GMS_UNSTABLE);
         sIsFinsky = packageName.equals(PACKAGE_FINSKY);
 
-        /* Set certified properties for GMSCore
+        /* Set certified fingerprint for GMSCore
          * Set stock fingerprint for ARCore
          * Set Pixel 5 for Snapchat, Google, ASI and GMS device configurator
          * Set Pixel 7 Pro for Live wallpaper and WallpaperEmoji
          * Set Pixel XL for Google Photos
          * Set custom model for Netflix
          */
-        if (sCertifiedProps.length == 4 && sIsGms) {
+        if (!sCertifiedFp.isEmpty() && sIsGms) {
             dlog("Spoofing build for GMS");
-            setPropValue("DEVICE", sCertifiedProps[0]);
-            setPropValue("PRODUCT", sCertifiedProps[1]);
-            setPropValue("MODEL", sCertifiedProps[2]);
-            setPropValue("FINGERPRINT", sCertifiedProps[3]);
+            setPropValue("FINGERPRINT", sCertifiedFp);
+            setPropValue("MODEL", Build.MODEL + "\u200b");
         } else if (!sStockFp.isEmpty() && packageName.equals(PACKAGE_ARCORE)) {
             dlog("Setting stock fingerprint for: " + packageName);
             setPropValue("FINGERPRINT", sStockFp);
