@@ -114,9 +114,8 @@ public class PropImitationHooks {
          * Set custom model for Netflix
          */
         if (!sCertifiedFp.isEmpty() && sIsGms) {
-            dlog("Spoofing build for GMS");
+            dlog("Setting certified fingerprint for GMS");
             setPropValue("FINGERPRINT", sCertifiedFp);
-            setPropValue("MODEL", Build.MODEL + "\u200b");
         } else if (!sStockFp.isEmpty() && packageName.equals(PACKAGE_ARCORE)) {
             dlog("Setting stock fingerprint for: " + packageName);
             setPropValue("FINGERPRINT", sStockFp);
