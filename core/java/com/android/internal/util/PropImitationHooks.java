@@ -17,10 +17,8 @@
 package com.android.internal.util;
 
 import android.app.Application;
-import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
-import android.text.TextUtils;
 import android.util.Log;
 
 import com.android.internal.R;
