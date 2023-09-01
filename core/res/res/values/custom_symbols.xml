@@ -34,10 +34,6 @@
     <!-- Vendor platform signatures -->
     <java-symbol type="array" name="config_vendorPlatformSignatures" />
 
-    <!-- PropImitationHooks -->
-    <java-symbol type="string" name="config_certifiedFingerprint" />
-    <java-symbol type="string" name="config_stockFingerprint" />
-
     <!-- Camera -->
     <java-symbol type="array" name="config_cameraAuxPackageAllowList" />
     <java-symbol type="array" name="config_cameraAuxPackageExcludeList" />
