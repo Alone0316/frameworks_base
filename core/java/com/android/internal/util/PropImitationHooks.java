@@ -64,6 +64,7 @@ public class PropImitationHooks {
     private static final String PACKAGE_VELVET = "com.google.android.googlequicksearchbox";
     private static final String PACKAGE_LIVE_WALLPAPER = "com.google.pixel.livewallpaper";
     private static final String PACKAGE_WALLPAPER_EMOJI = "com.google.android.apps.emojiwallpaper";
+    private static final String PACKAGE_WALLPAPER_EFFECT = "com.google.android.wallpaper.effects";
     private static final String PACKAGE_PIXEL_LAUNCHER = "com.google.android.apps.nexuslauncher";
 
     private static final String PROCESS_GMS_PERSISTENT = PACKAGE_GMS + ".persistent";
@@ -159,7 +160,8 @@ public class PropImitationHooks {
             dlog("Spoofing Pixel 5 for: " + packageName + " process: " + processName);
             sPixelProps.forEach(PropImitationHooks::setPropValue);
         } else if (sSpoofGapps && (packageName.equals(PACKAGE_WALLPAPER_EMOJI)
-                || packageName.equals(PACKAGE_LIVE_WALLPAPER))) {
+                || packageName.equals(PACKAGE_LIVE_WALLPAPER)
+                || packageName.equals(PACKAGE_WALLPAPER_EFFECT))) {
             dlog("Spoofing Pixel 7 Pro for: " + packageName + " process: " + processName);
             sPixel7Props.forEach(PropImitationHooks::setPropValue);
         } else if (sIsPhotos) {
